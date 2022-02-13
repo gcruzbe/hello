@@ -2,17 +2,48 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Portal básico - aprenderaprogramar.com</title>
+        <link rel="stylesheet" href="src/main.css">
     </head>
 <body>
-    <div id="body">
-        <form method="get" action="">
-            Nombre: <input type="text" name="nombre" /><br />
-            Apellidos: <input type="text" name="apellidos" /><br />
-            Dirección: <input type="text" name="direccion" /><br />
-            Correo electrónico: <input type="text" name="correo" /><br />
-            Teléfono: <input type="text" name="telefono" /><br />
+    <div id="formIdContainer">
+        <form class="form" method="get" action="">
+            Id usuario: <input type="number" name="id" id="inputId"/><br />
+            <button class="buttonId" id="buttonId" type="button">Enviar id</button>
         </form>
+    </div>
+    <br />
+    <div id="formUserContainer" hidden>
+        <form class="form" method="post" action="" id="form">
+            Nombre: <input type="text" name="name" id="nameUser" readonly/><br />
+            Apellidos: <input type="text" name="surname" id="surnameUser" readonly/><br />
+            Correo electrónico: <input type="text" name="email" id="email" readonly/><br />
+            Teléfono: <input type="text" name="phone" id="phone" required/><br />
+            Edad: <input type="text" name="age" id="age" required/><br />
+            Importe del préstamo: <input type="number" name="loan_amount" id="loan" min="10" max="1000" required/>
+            <select name="currency" id="currency" required>
+                <option value="€" selected>€</option>
+                <option value="$">$</option>
+            </select>
+            <br />
+            Fecha del préstamo: <input type="date" name="loan_date" id="loanDate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required/><br />
+            Tiempo a devolver: <input type="number" name="loan_weeks" id="loanWeeks" required min="11" max="20"/><br />
+            <input type="checkbox" id="conditions" name="check"> Aceptar térnimos y <a href="http://cloudframework.io/terminos-y-condiciones/">condiciones</a><br />
+
+            <button class="buttonSend" id="buttonSend">Enviar solicitud</button>
+        </form>
+    </div>
+    <div class="error" id="errorGet" hidden>
+        <p>Ha habido un error en la petición. El error es el siguiente</p>
+        <p id="errorGetText"></p>
+    </div>
+    <div class="success" id="successPost" hidden>
+        <p>Gracias! Ha enviado los datos correctamente.</p>
+        <p id="successPostText"></p>
+    </div>
+    <div class="error" id="errorPost" hidden>
+        <p>Ha habido un error al enviar los datos del formulario. El error es el siguiente</p>
+        <p id="errorPostText"></p>
+        <button id="backForm">Volver al formulario</button>
     </div>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -37,5 +68,6 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
       </script>
+      <script src="src/main.js" type="module"></script>
 </body>
 </html>

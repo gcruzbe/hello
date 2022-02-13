@@ -1,0 +1,52 @@
+.form{
+	width:300px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#ccc;
+}
+
+.form .buttonId,
+.form .buttonSend{
+	margin-top: 10px;
+}
+
+.form label{
+	width:72px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="number"],
+.form input[type="date"]{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+.form input[type="button"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+
+.form input[type="button"]:hover{
+	cursor:pointer;
+}
+
+.error{
+    padding: 16px;
+    border-radius: 5px;
+    border: 3px solid red;
+}
