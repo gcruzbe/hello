@@ -24,6 +24,7 @@ const errorGetText = errorGetContainer.querySelector('#errorGetText');
 const errorPostText = errorPostContainer.querySelector('#errorPostText');
 const successPostText = successPostContainer.querySelector('#successPostText');
 
+/** Manejador de fechas para dar el formato YYYY-MM-DD */
 const handleDate = () => {
   let date = new Date();
   let month;
@@ -35,7 +36,9 @@ const handleDate = () => {
 
 loanDate.setAttribute('min', `${handleDate()}`);
 
-//añadir si estan vacios los campos
+/** Al hacer click en el botón se hace la llamada a la url para rellenar los datos en los inputs
+ * Se muestran y se ocultan los divs en función del estado de la respuesta
+*/
 buttonId.addEventListener('click', () => {
     fetch(`https://api7.cloudframework.io/recruitment/fullstack/users?id=${inputIdValue.value}`, {
         method: 'GET',
@@ -61,6 +64,9 @@ buttonId.addEventListener('click', () => {
     })
 });
 
+/** Al hacer click en el botón se envia el formulario con los datos correspondientes
+ * Se muestran y se ocultan los divs en función del contenido de los inputs
+*/
 buttonSend.addEventListener('click', () => {
   const data = new FormData(formUserContainer.querySelector('#form'));
   fetch(`https://api7.cloudframework.io/recruitment/fullstack/users/${inputIdValue.value}`, {
@@ -85,6 +91,8 @@ buttonSend.addEventListener('click', () => {
   })
 });
 
+/** Botón de retorno que aparece en el error para mostrar el formulario de nuevo
+*/
 buttonBackForm.addEventListener('click', () => {
   errorPostContainer.setAttribute('hidden', 'hidden');
   formUserContainer.removeAttribute('hidden');
